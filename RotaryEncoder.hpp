@@ -1,12 +1,13 @@
 #ifndef _ROTARY_ENCODER_H
 #define _ROTARY_ENCODER_H
 
+#include <stdint.h>
 class RotaryEncoder
 {
    private:
     uint8_t pin1;
     uint8_t pin2;
-    byte sample = 0;
+    uint8_t sample = 0;
     int8_t count = 0;
     bool halfRes;
 

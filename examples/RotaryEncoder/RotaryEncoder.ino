@@ -1,26 +1,24 @@
 #include <RotaryEncoder.hpp>
 
-
 RotaryEncoder encoder = RotaryEncoder();
 
-void setup() {
-  Serial.begin(115200);
-  Serial.println("Started");
+void setup()
+{
+    Serial.begin(115200);
+    Serial.println("Started");
 
-  encoder.begin(9, 10);
+    encoder.begin(9, 10);
 }
 
+void loop()
+{
+    encoder.loop();
 
-void loop() {
+    for (; encoder.value > 0; encoder.value--) {
+        Serial.println(encoder.value);
+    }
 
-  encoder.loop();
-
-  for (;encoder.value > 0; encoder.value--) {
-      Serial.println(encoder.value);
-  }
-
-  for (;encoder.value < 0; encoder.value++) {
-    Serial.println(encoder.value);
-  }
-
+    for (; encoder.value < 0; encoder.value++) {
+        Serial.println(encoder.value);
+    }
 }
